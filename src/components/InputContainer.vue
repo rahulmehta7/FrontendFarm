@@ -4,10 +4,9 @@
             <b-input v-model="value" placeholder="Add the site..." rounded>
             </b-input>
             <p class="control">
-                <b-button type="is-primary" label="Add" />
+                <b-button @click="add()" type="is-primary" label="Add" />
             </p>
         </b-field>
-        <div>{{ value }} </div>
     </section>  
 </template>
 
@@ -19,13 +18,15 @@ export default {
         value: ''
       }
   },
-  props: {
-    msg: String
-  }
+  methods: {
+      add()
+      {
+          this.$emit('emit-to-add', this.value)
+      }
+  },
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 
 </style>

@@ -1,6 +1,6 @@
 <template>
 <div class="dashboard">
-    <input-container></input-container> 
+    <input-container @emit-to-add="addRow"></input-container> 
     <div class="dashboard-tableview">
       <table-view 
         :tableData="data">
@@ -24,13 +24,18 @@ export default {
     ]
     return { data };
   },
-  props: {
-    msg: String
-  },
   components: {
     InputContainer,
     TableView
-  }
+  },
+  methods: {
+    addRow(link){
+      let entry = {
+        'web_server_name': link, 'test_time': '04-15-2021 12:30 AM', 'status': 'Active'
+      }
+      this.data.push(entry);
+    }
+  },
 }
 </script>
 
