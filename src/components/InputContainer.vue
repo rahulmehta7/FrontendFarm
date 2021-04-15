@@ -28,5 +28,8 @@ export default {
 </script>
 
 <style>
+.input-container{
+ width: 50%;
+}
 
 </style>
